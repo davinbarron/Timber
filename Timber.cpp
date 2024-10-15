@@ -309,16 +309,24 @@ int main()
             ss << "Score = " << score;
             scoreText.setString(ss.str());
             //Testing with score++;
+
+            for (int i = 0; i < NUM_BRANCHES; i++) {
+                float height = i * 150;
+
+                if (branchPositions[i] == side::LEFT) {
+                    // Move the sprite to the left side
+                    branches[i].setPosition(600, height);
+                    // Flip the sprite round the other way
+                    branches[i].setRotation(180);
+                }
+            }
         }
-
-
 
          /*
           ****************************************
           Draw the scene
           ****************************************
           */
-        
 
           // Clear everything from the last frame
           window.clear();
