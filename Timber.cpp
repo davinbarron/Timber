@@ -381,4 +381,24 @@ int main()
     return 0;
 }
 
+void updateBranches(int seed) {
+    // Move all the branches down one place
+    for (int j = NUM_BRANCHES - 1; j > 0; j--) {
+        branchPositions[j] = branchPositions[j - 1]; // E.g move the branch in 1 into 2, 2 into 3, etc
+    }
 
+    // Spawn a new branch at position 0 - LEFT, RIGHT or NONE
+    srand((int)time(0) + seed);
+    int r = (rand() % 5);
+    switch (r) {
+    case 0:
+        branchPositions[0] = side::LEFT;
+        break;
+    case 1:
+        branchPositions[0] = side::RIGHT;
+        break;
+    default:
+        branchPositions[0] = side::NONE;
+        break;
+    } // End of switch
+} // End of function
