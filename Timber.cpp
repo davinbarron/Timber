@@ -129,6 +129,20 @@ int main()
 
     bool paused = true;
 
+    // Prepare 6 branches
+    Texture textureBranch;
+    textureBranch.loadFromFile("graphics/branch.png");
+
+    // Set the texture for each branch sprite
+    for (int i = 0; i < NUM_BRANCHES; i++) {
+        branches[i].setTexture(textureBranch);
+        branches[i].setPosition(-2000, -2000);
+
+        //Set the sprite's origin to dead centre
+        //We can then spin it round without changing its position
+        branches[i].setOrigin(220, 20);
+    }
+
     while (window.isOpen())
     {
         /*
