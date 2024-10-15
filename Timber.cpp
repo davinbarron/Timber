@@ -319,7 +319,17 @@ int main()
                     // Flip the sprite round the other way
                     branches[i].setRotation(180);
                 }
-            }
+                else if (branchPositions[i] == side::RIGHT) {
+                    // Move the sprite to the right side
+                    branches[i].setPosition(1330, height);
+                    // Set the sprite rotation to normal
+                    branches[i].setRotation(0);
+                }
+                else {
+                    // Hide the branch
+                    branches[i].setPosition(3000, height);
+                }
+            } // End of for loop
         }
 
          /*
